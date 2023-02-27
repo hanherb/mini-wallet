@@ -12,7 +12,7 @@ func AuthCustomer(c *gin.Context) {
 	jwt, err := lib.ExtractToken(c.Request)
 
 	if err != nil {
-		c.JSON(http.StatusUnauthorized, helper.ResponseUnauthorized(err.Error()))
+		c.AbortWithStatusJSON(http.StatusUnauthorized, helper.ResponseUnauthorized(err.Error()))
 		return
 	}
 

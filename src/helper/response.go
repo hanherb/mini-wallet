@@ -53,3 +53,12 @@ func ResponseISE(err string) gin.H {
 		},
 	}
 }
+
+func ResponseErrorMessage(message string, err string) gin.H {
+	return gin.H{
+		"status": message,
+		"data": gin.H{
+			"error": err,
+		},
+	}
+}
